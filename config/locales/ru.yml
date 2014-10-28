@@ -1,0 +1,81 @@
+ru:
+  app:
+    
+    name: ИС диспетчеризации технологического процесса контроля шероховатости детали
+    user: Пользователь
+    
+
+  activerecord:
+    models:
+      user: Пользователь
+      plan: План
+      product: Изделие
+      section: Деталь
+      asperity: Шероховатость
+      machine: Производственное оборудование(станок)
+      device: Измерительный прибор
+      department: Производственный участок(цех)
+
+    attributes:
+      product:
+        name: Название изделия
+        drawing: Чертеж
+        inventory_number: Инв. номер
+        amount_sections: Количество деталей
+
+      section:
+        name: Название детали
+        drawing: Чертеж
+        inventory_number: Инв. номер
+
+      asperity:
+        number: Номер
+        drawing: Чертеж
+        form: Форма
+        type: Тип
+
+      machine:
+        name: Название
+        model: Модель
+        type_machine: Тип станка
+        type_poverh: Тип поверхности
+        form_poverh: Форма поверхности
+        cleanliness: Класс чистоты
+        complexity: Трудоемкость
+
+      device:
+        name: Название
+        model: Модель
+        type_device: Тип измерительного прибора
+        type_poverh: Тип поверхности
+        form_poverh: Форма поверхности
+        cleanliness: Класс чистоты
+        complexity: Трудоемкость
+
+      department:
+        name: Название
+
+      plan:
+        name: Месяц
+        year: Год
+
+
+      user:
+        name: Имя
+        email: Адрес электронной почты
+        password: Пароль
+        password_confirmation: Пароль (повторно)
+        role: Роль
+  helpers:
+    sure: Вы уверены?
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …

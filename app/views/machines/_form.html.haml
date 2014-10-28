@@ -1,0 +1,28 @@
+= form_for @machine do |f|
+  =error_messages_for @machine
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :model
+    = f.text_field :model, class: 'form-control'
+  .form-group
+    = f.label :type_machine
+    = f.text_field :type_machine, class: 'form-control'
+  .form-group
+    = f.label :type_poverh
+    = f.text_field :type_poverh, class: 'form-control'
+  .form-group
+    = f.label :form_poverh
+    = f.text_field :form_poverh, class: 'form-control'
+  .form-group
+    = f.label :cleanliness
+    = f.text_field :cleanliness, class: 'form-control'
+  .form-group
+    = f.label :complexity
+    = f.text_field :complexity, class: 'form-control'
+
+  %p
+    .form-actions
+      = f.submit  nil, class: 'btn btn-primary'

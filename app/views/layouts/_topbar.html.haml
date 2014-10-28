@@ -1,0 +1,27 @@
+.navbar.navbar-default
+  .container
+    .navbar-header
+      =link_to t('app.name'), root_path,class: 'navbar-brand'
+    %ul.nav.navbar-nav
+      %li{class: ('active' if controller_name=='mains')}=link_to "Главная",mains_path
+      %li{class: ('active' if controller_name=='plans')}=link_to "Планы",plans_path
+      %li{class: ('active' if controller_name=='products')}=link_to "Изделия",products_path
+      %li{class: ('active' if controller_name=='sections')}=link_to "Детали",sections_path
+      %li{class: ('active' if controller_name=='asperities')}=link_to "Шероховатости",asperities_path
+      %li{class: ('active' if controller_name=='departments')}=link_to "Производственные участки",departments_path
+      %li{class: ('active' if controller_name=='machines')}=link_to "Производственное оборудование",machines_path
+      %li{class: ('active' if controller_name=='devices')}=link_to "Измерительные приборы",devices_path
+
+      -if User.edit?(@current_user)
+        %li{class: ('active' if controller_name=='users')}=link_to "Пользователи",users_path
+    %ul.nav.navbar-nav.navbar-right
+      -if @current_user
+        %li.dropdown
+          =link_to ?#,class: 'dropdown-toggle', data: {toggle: 'dropdown'} do
+            =@current_user.name
+            %span.caret
+          %ul.dropdown-menu
+            %li=link_to 'Выход',logout_path
+      -else
+        %li=link_to "Вход",login_path
+        %li=link_to "Регистрация",new_user_path

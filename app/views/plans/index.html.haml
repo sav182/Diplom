@@ -1,0 +1,27 @@
+
+%form{ :action => '/plans', :method => 'get' }
+  .form-group
+    -if @query.to_s == ''
+      %input{:type => "text", :name => 'q', :class => 'form-control', :placeholder => 'Искать'}
+    -else
+      %input{:type => "text", :name => 'q', :class => 'form-control', :value => @query}
+  .actions
+    %input{:type => "submit", :value => 'Найти', :class => 'btn btn-primary'}
+
+.page-header
+  %h1
+    Список планов по месяцам
+    -if Plan.add?(@current_user)
+      =link_to new_plan_path,class: 'btn btn-primary' do
+        =fa_icon 'plus'
+
+-if @plans.length > 0
+  .list-group
+    -@plans.each do |plan|
+      =link_to plan.name.to_s + ' ' + plan.year.to_s, plan,class: 'list-group-item'
+=paginate @plans
+
+
+
+
+

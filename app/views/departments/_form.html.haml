@@ -1,0 +1,10 @@
+= form_for @department do |f|
+  =error_messages_for @department
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  %p
+    .form-actions
+      = f.submit  nil, class: 'btn btn-primary'

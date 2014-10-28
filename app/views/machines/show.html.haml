@@ -1,0 +1,23 @@
+= link_to 'Вернуться', machines_path, {:class => 'btn btn-default'}
+.page-header
+%p
+  %b Название:
+  = @machine.name
+%p
+  %b Модель производственного оборудования:
+  = @machine.model
+%p
+  %b Тип производственного оборудования:
+  = @machine.type_machine
+%p
+  %b Тип поверхности:
+  = @machine.type_poverh
+%p
+  %b Форма поверхности:
+  = @machine.form_poverh
+%p
+  %b Класс чистоты:
+  = @machine.cleanliness
+%p
+  %b Трудоемкость:
+  = @machine.complexity

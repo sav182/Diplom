@@ -1,0 +1,23 @@
+= link_to 'Вернуться', devices_path, {:class => 'btn btn-default'}
+.page-header
+%p
+  %b Название:
+  = @device.name
+%p
+  %b Модель измерительного прибора:
+  = @device.model
+%p
+  %b Тип измерительного прибора:
+  = @device.type_device
+%p
+  %b Тип поверхности:
+  = @device.type_poverh
+%p
+  %b Форма поверхности:
+  = @device.form_poverh
+%p
+  %b Класс чистоты:
+  = @device.cleanliness
+%p
+  %b Трудоемкость:
+  = @device.complexity

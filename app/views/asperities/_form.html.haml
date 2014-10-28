@@ -1,0 +1,18 @@
+= form_for @asperity do |f|
+  =error_messages_for @asperity
+
+  .form-group
+    = f.label :number
+    = f.text_field :number, class: 'form-control'
+  .form-group
+    = f.label :drawing
+    = f.text_field :drawing, class: 'form-control'
+  .form-group
+    = f.label :form
+    = f.text_field :form, class: 'form-control'
+  .form-group
+    = f.label :type
+    = f.text_field :type, class: 'form-control'
+  %p
+    .form-actions
+      = f.submit  nil, class: 'btn btn-primary'

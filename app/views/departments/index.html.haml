@@ -1,0 +1,31 @@
+.page-header
+  %h1
+    Производственные участки
+    -if Product.add?(@current_user)
+      =link_to new_department_path,class: 'btn btn-primary' do
+        =fa_icon 'plus'
+  %form{ :action => '/departments', :method => 'get' }
+    .form-group
+      -if @query.to_s == ''
+        %input{:type => "text", :name => 'q', :class => 'form-control', :placeholder => 'Искать'}
+      -else
+        %input{:type => "text", :name => 'q', :class => 'form-control', :value => @query}
+    .actions
+      %input{:type => "submit", :value => 'Найти', :class => 'btn btn-primary'}
+
+-if @departments.length > 0
+  %table.table
+    %tr
+      %th Название
+      %th
+
+
+    - @departments.each do |department|
+      %tr
+        %td= department.name
+        %td= link_to 'Просмотреть', department, :class => 'btn btn-success'
+        -if session[:user_id]
+          %td= link_to 'Исправить', edit_department_path(department), {:class => 'btn btn-warning'}
+          %td= link_to '  У  Д  А  Л  И  Т  Ь ', department, {:class => 'btn btn-danger', :method => :delete, :data => { :confirm => 'Вы уверены?' }}
+
+

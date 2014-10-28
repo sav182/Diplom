@@ -1,0 +1,33 @@
+.page-header
+  %h1
+    Детали
+    -if Product.add?(@current_user)
+      =link_to new_section_path,class: 'btn btn-primary' do
+        =fa_icon 'plus'
+  %form{ :action => '/sections', :method => 'get' }
+    .form-group
+      -if @query.to_s == ''
+        %input{:type => "text", :name => 'q', :class => 'form-control', :placeholder => 'Искать'}
+      -else
+        %input{:type => "text", :name => 'q', :class => 'form-control', :value => @query}
+    .actions
+      %input{:type => "submit", :value => 'Найти', :class => 'btn btn-primary'}
+
+-if @sections.length > 0
+  %table.table
+    %tr
+      %th Название
+      %th Чертеж
+      %th Инв. номер
+      %th
+
+    - @sections.each do |section|
+      %tr
+        %td= section.name
+        %td= section.drawing
+        %td= section.inventory_number
+        %td= link_to 'Просмотреть', section, :class => 'btn btn-success'
+        -if session[:user_id]
+          %td= link_to 'Исправить', edit_section_path(section), {:class => 'btn btn-warning'}
+          %td= link_to '  У  Д  А  Л  И  Т  Ь ', section, {:class => 'btn btn-danger', :method => :delete, :data => { :confirm => 'Вы уверены?' }}
+

@@ -1,0 +1,40 @@
+.page-header
+  %h1
+    Производственное оборудование(станки)
+    -if Product.add?(@current_user)
+      =link_to new_machine_path,class: 'btn btn-primary' do
+        =fa_icon 'plus'
+  %form{ :action => '/machines', :method => 'get' }
+    .form-group
+      -if @query.to_s == ''
+        %input{:type => "text", :name => 'q', :class => 'form-control', :placeholder => 'Искать'}
+      -else
+        %input{:type => "text", :name => 'q', :class => 'form-control', :value => @query}
+    .actions
+      %input{:type => "submit", :value => 'Найти', :class => 'btn btn-primary'}
+
+-if @machines.length > 0
+  %table.table
+    %tr
+      %th Название
+      %th Модель
+      %th Тип производственного оборудования
+      %th Тип поверхности
+      %th Форма поверхности
+      %th Класс чистоты
+      %th Трудоемкость
+
+    - @machines.each do |machine|
+      %tr
+        %td= machine.name
+        %td= machine.model
+        %td= machine.type_machine
+        %td= machine.type_poverh
+        %td= machine.form_poverh
+        %td= machine.cleanliness
+        %td= machine.complexity
+
+        %td= link_to 'Просмотреть', machine, :class => 'btn btn-success'
+        -if session[:user_id]
+          %td= link_to 'Исправить', edit_machine_path(machine), {:class => 'btn btn-warning'}
+          %td= link_to '  У  Д  А  Л  И  Т  Ь ', machine, {:class => 'btn btn-danger', :method => :delete, :data => { :confirm => 'Вы уверены?' }}

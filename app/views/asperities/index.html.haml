@@ -1,0 +1,35 @@
+.page-header
+  %h1
+    Шероховатости
+    -if Product.add?(@current_user)
+      =link_to new_asperity_path,class: 'btn btn-primary' do
+        =fa_icon 'plus'
+  %form{ :action => '/asperities', :method => 'get' }
+    .form-group
+      -if @query.to_s == ''
+        %input{:type => "text", :name => 'q', :class => 'form-control', :placeholder => 'Искать'}
+      -else
+        %input{:type => "text", :name => 'q', :class => 'form-control', :value => @query}
+    .actions
+      %input{:type => "submit", :value => 'Найти', :class => 'btn btn-primary'}
+
+-if @asperities.length > 0
+  %table.table
+    %tr
+      %th Номер
+      %th Чертеж
+      %th Форма
+      %th Тип
+      %th
+
+    - @asperities.each do |asperity|
+      %tr
+        %td= asperity.number
+        %td= asperity.drawing
+        %td= asperity.form
+        %td= asperity.type
+        %td= link_to 'Просмотреть', asperity, :class => 'btn btn-success'
+        -if session[:user_id]
+          %td= link_to 'Исправить', edit_asperity_path(asperity), {:class => 'btn btn-warning'}
+          %td= link_to '  У  Д  А  Л  И  Т  Ь ', asperity, {:class => 'btn btn-danger', :method => :delete, :data => { :confirm => 'Вы уверены?' }}
+

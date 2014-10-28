@@ -1,0 +1,17 @@
+= link_to 'Вернуться', products_path, {:class => 'btn btn-default'}
+.page-header
+%p
+  %b Название:
+  = @product.name
+%p
+  %b Чертеж:
+  = @product.drawing
+%p
+  %b Инвентарный номер:
+  = @product.inventory_number
+%p
+  %b Количество деталей:
+  = @product.amount_sections
+%p
+-if session[:user_id].nil? == false
+  = link_to 'Исправить', edit_product_path(@product), :class => "btn btn-success"

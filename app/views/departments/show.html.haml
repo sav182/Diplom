@@ -1,0 +1,9 @@
+= link_to 'Вернуться', departments_path, {:class => 'btn btn-default'}
+.page-header
+%p
+  %b Название:
+  = @department.name
+%p
+-if session[:user_id].nil? == false
+  = link_to 'Исправить', edit_department_path(@department), :class => "btn btn-success"
+

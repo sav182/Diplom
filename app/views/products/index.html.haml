@@ -1,0 +1,35 @@
+.page-header
+  %h1
+    Изделия
+    -if Product.add?(@current_user)
+      =link_to new_product_path,class: 'btn btn-primary' do
+        =fa_icon 'plus'
+  %form{ :action => '/products', :method => 'get' }
+    .form-group
+      -if @query.to_s == ''
+        %input{:type => "text", :name => 'q', :class => 'form-control', :placeholder => 'Искать'}
+      -else
+        %input{:type => "text", :name => 'q', :class => 'form-control', :value => @query}
+    .actions
+      %input{:type => "submit", :value => 'Найти', :class => 'btn btn-primary'}
+
+-if @products.length > 0
+  %table.table
+    %tr
+      %th Название
+      %th Чертеж
+      %th Инв. номер
+      %th Количество деталей
+      %th
+
+
+    - @products.each do |product|
+      %tr
+        %td= product.name
+        %td= product.drawing
+        %td= product.inventory_number
+        %td= product.amount_sections
+        %td= link_to 'Просмотреть', product, :class => 'btn btn-success'
+        %td= link_to 'Исправить', edit_product_path(product), {:class => 'btn btn-warning'}
+        %td= link_to '  У  Д  А  Л  И  Т  Ь ', product, {:class => 'btn btn-danger', :method => :delete, :data => { :confirm => 'Вы уверены?' }}
+

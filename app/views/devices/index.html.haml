@@ -1,0 +1,39 @@
+.page-header
+  %h1
+    Измерительные приборы
+    -if Product.add?(@current_user)
+      =link_to new_device_path,class: 'btn btn-primary' do
+        =fa_icon 'plus'
+  %form{ :action => '/devices', :method => 'get' }
+    .form-group
+      -if @query.to_s == ''
+        %input{:type => "text", :name => 'q', :class => 'form-control', :placeholder => 'Искать'}
+      -else
+        %input{:type => "text", :name => 'q', :class => 'form-control', :value => @query}
+    .actions
+      %input{:type => "submit", :value => 'Найти', :class => 'btn btn-primary'}
+
+-if @devices.length > 0
+  %table.table
+    %tr
+      %th Название
+      %th Модель
+      %th Тип измерительного прибора
+      %th Тип поверхности
+      %th Форма поверхности
+      %th Класс чистоты
+      %th Трудоемкость
+
+    - @devices.each do |device|
+      %tr
+        %td= device.name
+        %td= device.model
+        %td= device.type_device
+        %td= device.type_poverh
+        %td= device.form_poverh
+        %td= device.cleanliness
+        %td= device.complexity
+
+        %td= link_to 'Просмотреть', device, :class => 'btn btn-success'
+        %td= link_to 'Исправить', edit_device_path(device), {:class => 'btn btn-warning'}
+        %td= link_to '  У  Д  А  Л  И  Т  Ь ', device, {:class => 'btn btn-danger', :method => :delete, :data => { :confirm => 'Вы уверены?' }}

@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%p
+  %b Имя:
+  = @user.name
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Роль:
+  = @user.role
+  
+= link_to 'Вернуться', users_path

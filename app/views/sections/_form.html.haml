@@ -1,0 +1,15 @@
+= form_for @section do |f|
+  =error_messages_for @section
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :drawing
+    = f.text_field :drawing, class: 'form-control'
+  .form-group
+    = f.label :inventory_number
+    = f.text_field :inventory_number, class: 'form-control'
+  %p
+    .form-actions
+      = f.submit  nil, class: 'btn btn-primary'

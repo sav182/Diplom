@@ -1,0 +1,14 @@
+= link_to 'Вернуться', sections_path, {:class => 'btn btn-default'}
+.page-header
+%p
+  %b Название:
+  = @section.name
+%p
+  %b Чертеж:
+  = @section.drawing
+%p
+  %b Инвентарный номер:
+  = @section.inventory_number
+%p
+-if session[:user_id].nil? == false
+  = link_to 'Исправить', edit_section_path(@section), :class => "btn btn-success"
