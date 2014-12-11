@@ -7,8 +7,10 @@ class CreateMachines < ActiveRecord::Migration
       t.string :type_poverh
       t.string :form_poverh
       t.float :cleanliness
-      t.float :complexity
+      t.float :start_complexity
+      t.float :end_complexity
       t.belongs_to :department, index: true
+      t.belongs_to :asperity, index: true
       t.timestamps
     end
   end

@@ -2,6 +2,9 @@ class Plan < ActiveRecord::Base
 
   has_many :products, dependent: :destroy
   has_many :sections, dependent: :destroy
+  has_many :machines, dependent: :destroy
+  has_many :devices , dependent: :destroy
+  has_many :departments, dependent: :destroy
 
   scope :full, -> {includes(:products, :sections)}
 

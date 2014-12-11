@@ -54,15 +54,19 @@ ActiveRecord::Schema.define(version: 20141005192906) do
     t.float    "cleanliness"
     t.float    "complexity"
     t.integer  "department_id"
+    t.integer  "asperity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "machines", ["asperity_id"], name: "index_machines_on_asperity_id"
   add_index "machines", ["department_id"], name: "index_machines_on_department_id"
 
   create_table "plans", force: true do |t|
     t.integer  "name"
     t.integer  "year"
+    t.integer  "count_product"
+    t.integer  "count_section"
     t.integer  "product_id"
     t.integer  "section_id"
     t.datetime "created_at"

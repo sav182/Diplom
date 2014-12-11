@@ -1,13 +1,3 @@
-
-%form{ :action => '/plans', :method => 'get' }
-  .form-group
-    -if @query.to_s == ''
-      %input{:type => "text", :name => 'q', :class => 'form-control', :placeholder => 'Искать'}
-    -else
-      %input{:type => "text", :name => 'q', :class => 'form-control', :value => @query}
-  .actions
-    %input{:type => "submit", :value => 'Найти', :class => 'btn btn-primary'}
-
 .page-header
   %h1
     Список планов по месяцам
@@ -15,10 +5,45 @@
       =link_to new_plan_path,class: 'btn btn-primary' do
         =fa_icon 'plus'
 
+  %form{ :action => '/plans', :method => 'get' }
+    .form-group
+      -if @query.to_s == ''
+        %input{:type => "text", :name => 'q', :class => 'form-control', :placeholder => 'Искать'}
+      -else
+        %input{:type => "text", :name => 'q', :class => 'form-control', :value => @query}
+    .actions
+      %input{:type => "submit", :value => 'Найти', :class => 'btn btn-primary'}
+
+
 -if @plans.length > 0
   .list-group
     -@plans.each do |plan|
-      =link_to plan.name.to_s + ' ' + plan.year.to_s, plan,class: 'list-group-item'
+      =link_to plan,class: 'list-group-item' do
+        -if plan.name ==0
+          Январь #{plan.year}
+        -if plan.name ==1
+          Февраль #{plan.year}
+        -if plan.name ==2
+          Март #{plan.year}
+        -if plan.name ==3
+          Апрель #{plan.year}
+        -if plan.name ==4
+          Май #{plan.year}
+        -if plan.name ==5
+          Июнь #{plan.year}
+        -if plan.name ==6
+          Июль #{plan.year}
+        -if plan.name ==7
+          Август #{plan.year}
+        -if plan.name ==8
+          Сентябрь #{plan.year}
+        -if plan.name ==9
+          Октябрь #{plan.year}
+        -if plan.name ==10
+          Ноябрь #{plan.year}
+        -if plan.name ==11
+          Декабрь #{plan.year}
+
 =paginate @plans
 
 

@@ -10,6 +10,11 @@
   .form-group
     = f.label :inventory_number
     = f.text_field :inventory_number, class: 'form-control'
+  .row
+    .col-sm-4
+      .form-group
+        = f.label :asperity_id
+        = f.select :asperity_id, Asperity.all.map{|c| [c.number]},{}, class: 'form-control'
   %p
     .form-actions
       = f.submit  nil, class: 'btn btn-primary'

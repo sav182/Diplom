@@ -1,5 +1,7 @@
 class Machine < ActiveRecord::Base
   belongs_to :department
+  belongs_to :plan
+  belongs_to :asperity
   has_many :sections, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true, length: {maximum: 255}

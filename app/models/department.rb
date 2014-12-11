@@ -1,6 +1,8 @@
 class Department < ActiveRecord::Base
   has_many :machines, dependent: :destroy
   has_many :devices , dependent: :destroy
+  belongs_to :plan
+
 
   validates :name, presence: true, uniqueness: true, length: {maximum: 255}
 

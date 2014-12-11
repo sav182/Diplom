@@ -1,33 +1,47 @@
 = link_to 'Вернуться', plans_path, {:class => 'btn btn-default'}
 .page-header
+
   %h1
+    -if @plan.name ==0
+      Январь #{@plan.year}
+    -if @plan.name ==1
+      Февраль #{@plan.year}
+    -if @plan.name ==2
+      Март #{@plan.year}
+    -if @plan.name ==3
+      Апрель #{@plan.year}
+    -if @plan.name ==4
+      Май #{@plan.year}
+    -if @plan.name ==5
+      Июнь #{@plan.year}
+    -if @plan.name ==6
+      Июль #{@plan.year}
+    -if @plan.name ==7
+      Август #{@plan.year}
+    -if @plan.name ==8
+      Сентябрь #{@plan.year}
+    -if @plan.name ==9
+      Октябрь #{@plan.year}
+    -if @plan.name ==10
+      Ноябрь #{@plan.year}
+    -if @plan.name ==11
+      Декабрь #{@plan.year}
 
-    %h1
-      -if @plan.name ==0
-        Январь
-      -if @plan.name ==1
-        Февраль
-      -if @plan.name ==2
-        Март
-      -if @plan.name ==3
-        Апрель
-      -if @plan.name ==4
-        Май
-      -if @plan.name ==5
-        Июнь
-      -if @plan.name ==6
-        Июль
-      -if @plan.name ==7
-        Август
-      -if @plan.name ==8
-        Сентябрь
-      -if @plan.name ==9
-        Октябрь
-      -if @plan.name ==10
-        Ноябрь
-      -if @plan.name ==11
-        Декабрь
-
+    -p=Product.where("id=?",@plan.product_id).first
+    -t=Section.where("id=?",@plan.section_id).first
+%table.table
+  %tr
+    %th Изделие
+    %th Количество изделий
+    %th Деталь
+    %th Количество деталей
+    -#- @plan.products.each do |s|
+%table.table
+  %tr
+    %td=p.name
+    %td=@plan.count_product
+    %td=t.name
+    %td=@plan.count_section
 .row
   .col-sm-9
     .btn-toolbar

@@ -4,13 +4,13 @@
     <data-source source="LOCAL" name="Rails Diplom: development" uuid="15b8028f-95cd-4e32-9f0c-deb46f25e3c6">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Diplom\db\development.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Diplom1\db\development.sqlite3</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails Diplom: test" uuid="aef9ade9-0c87-44bf-b8d9-db0ff344cc65">
       <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Diplom\db\test.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Diplom1\db\test.sqlite3</jdbc-url>
       <libraries />
     </data-source>
   </component>

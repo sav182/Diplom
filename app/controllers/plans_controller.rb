@@ -47,6 +47,7 @@ class PlansController < ApplicationController
   # PATCH/PUT /plans/1
   # PATCH/PUT /plans/1.json
   def update
+    #raise plan_params().inspect
     respond_to do |format|
       if @plan.update(plan_params)
         format.html { redirect_to @plan, notice: 'План успешно обновлен' }
@@ -76,7 +77,7 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:name, :year, :product_id, :section_id)
+      params.require(:plan).permit(:name, :year, :count_product, :product_id, :section_id, :count_section,)
     end
 
     def check_add

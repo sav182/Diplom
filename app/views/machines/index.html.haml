@@ -4,6 +4,7 @@
     -if Product.add?(@current_user)
       =link_to new_machine_path,class: 'btn btn-primary' do
         =fa_icon 'plus'
+
   %form{ :action => '/machines', :method => 'get' }
     .form-group
       -if @query.to_s == ''

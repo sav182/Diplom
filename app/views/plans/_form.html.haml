@@ -47,11 +47,19 @@
     .col-sm-4
       .form-group
         =f.label :product_id
-        =f.select :product_id, Product.all.map{|c| [c.name,c.id]},{}, {class: 'form-control js-choosen', :multiple => true}
+        =f.select :product_id, Product.all.map{|c| [c.name,c.id]},{}, {class: 'form-control'}
+
+      .form-group
+        =f.label :count_product
+        =f.number_field :count_product, type: " "
   .row
     .col-sm-4
       .form-group
         =f.label :section_id
-        =f.select :section_id, Section.all.map{|c| [c.name,c.id]},{}, {class: 'form-control js-choosen', :multiple => true}
+        =f.select :section_id, Section.all.map{|c| [c.name,c.id]},{}, {class: 'form-control'}
+
+      .form-group
+        =f.label :count_section
+        =f.number_field :count_section, type: " "
   .form-actions
     = f.submit nil, class: 'btn btn-primary'

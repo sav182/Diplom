@@ -3,8 +3,9 @@ class CreateAsperities < ActiveRecord::Migration
     create_table :asperities do |t|
       t.integer :number
       t.string :drawing
-      t.string :form
-      t.string :type
+      t.string :form_poverh
+      t.string :type_poverh
+      t.cleanliness
       t.timestamps
     end
   end

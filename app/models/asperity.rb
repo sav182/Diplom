@@ -1,6 +1,7 @@
 class Asperity < ActiveRecord::Base
   has_many :sections, dependent: :destroy
   has_many :devices, dependent: :destroy
+  has_many :machines, dependent: :destroy
 
   self.inheritance_column = :_type_disabled
 

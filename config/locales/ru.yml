@@ -58,7 +58,10 @@ ru:
       plan:
         name: Месяц
         year: Год
-
+        product_id: Изделие
+        section_id: Деталь
+        count_product: Количество изделий
+        count_section: Количество деталей
 
       user:
         name: Имя

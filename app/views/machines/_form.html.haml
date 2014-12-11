@@ -22,6 +22,11 @@
   .form-group
     = f.label :complexity
     = f.text_field :complexity, class: 'form-control'
+  .row
+    .col-sm-4
+      .form-group
+        = f.label :asperity_id
+        = f.select :asperity_id, Asperity.all.map{|c| [c.number]},{}, class: 'form-control'
 
   %p
     .form-actions
