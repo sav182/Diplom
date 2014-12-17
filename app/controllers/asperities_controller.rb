@@ -77,6 +77,6 @@ class AsperitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asperity_params
-      params.require(:asperity).permit(:number, :drawing, :form, :type, :section_id, :device_id)
+      params.require(:asperity).permit(:number, :drawing, :form_poverh, :type_poverh, :section_id, :device_id, :complexity)
     end
 end

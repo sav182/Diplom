@@ -14,7 +14,7 @@
     .col-sm-4
       .form-group
         = f.label :asperity_id
-        = f.select :asperity_id, Asperity.all.map{|c| [c.number]},{}, class: 'form-control'
+        = f.select :asperity_id, Asperity.all.map{|c| [c.number,c.id]},{}, class: 'form-control'
   %p
     .form-actions
       = f.submit  nil, class: 'btn btn-primary'

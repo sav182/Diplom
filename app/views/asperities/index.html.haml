@@ -26,8 +26,9 @@
       %tr
         %td= asperity.number
         %td= asperity.drawing
-        %td= asperity.form
-        %td= asperity.type
+        %td= asperity.form_poverh
+        %td= asperity.type_poverh
+        %td= asperity.complexity
         %td= link_to 'Просмотреть', asperity, :class => 'btn btn-success'
         -if session[:user_id]
           %td= link_to 'Исправить', edit_asperity_path(asperity), {:class => 'btn btn-warning'}

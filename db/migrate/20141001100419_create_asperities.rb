@@ -5,7 +5,8 @@ class CreateAsperities < ActiveRecord::Migration
       t.string :drawing
       t.string :form_poverh
       t.string :type_poverh
-      t.cleanliness
+      t.float :complexity
+      t.integer :cleanliness
       t.timestamps
     end
   end

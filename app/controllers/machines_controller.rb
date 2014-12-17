@@ -17,6 +17,9 @@ class MachinesController < ApplicationController
   # GET /machines/1
   # GET /machines/1.json
   def show
+    asperity_id = @machine.asperity.try(:id)
+    @sections = []
+    @sections = Section.where('asperity_id = ?', asperity_id).all unless asperity_id.nil?
   end
 
   # GET /machines/new

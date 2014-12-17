@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :set_section, only: [:show, :edit, :update, :destroy]
+  before_action :set_section, only: [:edit, :update, :destroy]
 
   # GET /sections
   # GET /sections.json
@@ -18,6 +18,9 @@ class SectionsController < ApplicationController
   # GET /sections/1.json
   def show
     @section=Section.full.find(params[:id])
+    cleanlines = @section.asperity.try(:complexity)
+    @machines = []
+    @machines = Machine.where('cleanliness = ?', cleanlines).all unless cleanlines.nil?
   end
 
   # GET /sections/new

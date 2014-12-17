@@ -7,8 +7,9 @@ class Asperity < ActiveRecord::Base
 
   validates :number, presence: true, uniqueness: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
   validates :drawing, presence: true
-  validates :form, presence: true
-  validates :type, presence: true
+  validates :form_poverh, presence: true
+  validates :type_poverh, presence: true
+  validates :complexity, presence: true
 
   scope :full, -> {includes(:sections, :devices)}
 

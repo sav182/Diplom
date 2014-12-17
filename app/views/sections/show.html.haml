@@ -10,5 +10,9 @@
   %b Инвентарный номер:
   = @section.inventory_number
 %p
+  %b Подходящее оборудоване:
+  - unless @machines.empty?
+    = @machines.map{|m| m.name}.join(', ')
+%p
 -if session[:user_id].nil? == false
   = link_to 'Исправить', edit_section_path(@section), :class => "btn btn-success"

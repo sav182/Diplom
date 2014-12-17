@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 20141005192906) do
   create_table "asperities", force: true do |t|
     t.integer  "number"
     t.string   "drawing"
-    t.string   "form"
-    t.string   "type"
+    t.string   "form_poverh"
+    t.string   "type_poverh"
+    t.float    "complexity"
+    t.integer  "cleanliness"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,7 +37,8 @@ ActiveRecord::Schema.define(version: 20141005192906) do
     t.string   "type_poverh"
     t.string   "form_poverh"
     t.float    "cleanliness"
-    t.float    "complexity"
+    t.float    "start_complexity"
+    t.float    "end_complexity"
     t.integer  "asperity_id"
     t.integer  "department_id"
     t.datetime "created_at"
