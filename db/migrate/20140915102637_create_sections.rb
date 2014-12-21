@@ -7,6 +7,7 @@ class CreateSections < ActiveRecord::Migration
       t.belongs_to :product, index: true
       t.belongs_to :asperity, index: true
       t.belongs_to :machine, index: true
+      t.belongs_to :device, index: true
       t.belongs_to :plan, index: true
       t.timestamps
     end

@@ -17,7 +17,9 @@ class DevicesController < ApplicationController
   # GET /devices/1
   # GET /devices/1.json
   def show
-    @device=Device.full.find(params[:id])
+    asperity_id = @device.asperity.try(:id)
+    @sections = []
+    @sections = Section.where('asperity_id = ?', asperity_id).all unless asperity_id.nil?
   end
 
   # GET /devices/new
@@ -77,6 +79,6 @@ class DevicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def device_params
-      params.require(:device).permit(:name, :model, :type_device, :type_poverh, :form_poverh, :cleanliness, :complexity)
+      params.require(:device).permit(:name, :model, :type_device, :type_poverh, :form_poverh,:asperity_id, :cleanliness, :complexity)
     end
 end

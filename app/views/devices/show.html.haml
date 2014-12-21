@@ -21,3 +21,7 @@
 %p
   %b Трудоемкость:
   = @device.complexity
+%p
+  %b Подходящие детали:
+  - unless @sections.empty?
+    = @sections.map{|m| m.name}.join(', ')

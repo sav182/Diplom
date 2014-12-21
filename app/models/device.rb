@@ -1,6 +1,7 @@
 class Device < ActiveRecord::Base
   belongs_to :asperity
   belongs_to :department
+  has_many :sections, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true, length: {maximum: 255}
   validates :model, presence: true

@@ -21,6 +21,8 @@ class SectionsController < ApplicationController
     cleanlines = @section.asperity.try(:complexity)
     @machines = []
     @machines = Machine.where('cleanliness = ?', cleanlines).all unless cleanlines.nil?
+    @devices = []
+    @devices = Device.where('cleanliness = ?', cleanlines).all unless cleanlines.nil?
   end
 
   # GET /sections/new
@@ -80,6 +82,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:name, :drawing, :inventory_number)
+      params.require(:section).permit(:name, :drawing, :inventory_number, :asperity_id)
     end
 end

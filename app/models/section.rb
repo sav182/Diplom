@@ -1,6 +1,7 @@
 class Section < ActiveRecord::Base
   belongs_to :product
   belongs_to :asperity
+  belongs_to :device
   belongs_to :machine
   belongs_to :plan
 
